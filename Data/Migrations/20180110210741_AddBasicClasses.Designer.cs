@@ -309,12 +309,12 @@ namespace BugTrackerGetIT.Data.Migrations
                     b.HasOne("BugTrackerGetIT.Models.Bug", "Bug")
                         .WithMany()
                         .HasForeignKey("BugId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("BugTrackerGetIT.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

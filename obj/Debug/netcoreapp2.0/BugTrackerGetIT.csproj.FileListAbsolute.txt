@@ -9,3 +9,4 @@ C:\Users\Infer\source\repos\ASP.NET Core 2\BugTrackerGetIT\bin\Debug\netcoreapp2
 C:\Users\Infer\source\repos\ASP.NET Core 2\BugTrackerGetIT\bin\Debug\netcoreapp2.0\BugTrackerGetIT.pdb
 C:\Users\Infer\source\repos\ASP.NET Core 2\BugTrackerGetIT\obj\Debug\netcoreapp2.0\BugTrackerGetIT.dll
 C:\Users\Infer\source\repos\ASP.NET Core 2\BugTrackerGetIT\obj\Debug\netcoreapp2.0\BugTrackerGetIT.pdb
+C:\Users\Infer\source\repos\ASP.NET Core 2\BugTrackerGetIT\obj\Debug\netcoreapp2.0\BugTrackerGetIT.csprojResolveAssemblyReference.cache

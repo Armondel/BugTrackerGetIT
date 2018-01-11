@@ -4,6 +4,13 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-BugTrackerGetIT-BC57555B-C5CC-45FE-8F34-3D8F280F10A1</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180111121136_Seeding Database with static data.cs" />
+    <Compile Remove="Data\Migrations\20180111121136_Seeding Database with static data.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180111122224_SeedingDatabase.cs" />
+    <Compile Remove="Data\Migrations\20180111122224_SeedingDatabase.Designer.cs" />
+  </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
