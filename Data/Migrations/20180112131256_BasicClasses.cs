@@ -1,13 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
 namespace BugTrackerGetIT.Data.Migrations
 {
-    public partial class AddBasicClasses : Migration
+    public partial class BasicClasses : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers");
+
             migrationBuilder.DropIndex(
                 name: "IX_AspNetUserRoles_UserId",
                 table: "AspNetUserRoles");
@@ -35,7 +40,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<byte>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
+                    CriticalityName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +52,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<byte>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
+                    PriorityName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,7 +64,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<byte>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
+                    StatusName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,25 +92,25 @@ namespace BugTrackerGetIT.Data.Migrations
                         column: x => x.CriticalityId,
                         principalTable: "Criticality",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bugs_Priority_PriorityId",
                         column: x => x.PriorityId,
                         principalTable: "Priority",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bugs_Status_StatusId",
                         column: x => x.StatusId,
                         principalTable: "Status",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bugs_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,10 +141,18 @@ namespace BugTrackerGetIT.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BugHistory_BugId",
@@ -202,6 +215,10 @@ namespace BugTrackerGetIT.Data.Migrations
                 name: "Status");
 
             migrationBuilder.DropIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles");
 
@@ -212,6 +229,13 @@ namespace BugTrackerGetIT.Data.Migrations
             migrationBuilder.DropColumn(
                 name: "LastName",
                 table: "AspNetUsers");
+
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_UserId",

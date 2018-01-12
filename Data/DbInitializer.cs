@@ -22,10 +22,10 @@ namespace BugTrackerGetIT.Data
 
 			var criticalities = new[]
 			{
-					new Criticality {Id = 1, Name = "Failure"},
-					new Criticality {Id = 2, Name = "Critical"},
-					new Criticality {Id = 3, Name = "Not Critical"},
-					new Criticality {Id = 4, Name = "Change Request"}
+					new Criticality {Id = 1, CriticalityName = "Failure"},
+					new Criticality {Id = 2, CriticalityName = "Critical"},
+					new Criticality {Id = 3, CriticalityName = "Not Critical"},
+					new Criticality {Id = 4, CriticalityName = "Change Request"}
 				};
 
 			foreach (var c in criticalities)
@@ -36,10 +36,10 @@ namespace BugTrackerGetIT.Data
 			// Priority
 			var priorities = new[]
 			{
-					new Priority {Id = 1, Name = "Very High"},
-					new Priority {Id = 2, Name = "High"},
-					new Priority {Id = 3, Name = "Normal"},
-					new Priority {Id = 4, Name = "Low"}
+					new Priority {Id = 1, PriorityName = "Very High"},
+					new Priority {Id = 2, PriorityName = "High"},
+					new Priority {Id = 3, PriorityName = "Normal"},
+					new Priority {Id = 4, PriorityName = "Low"}
 				};
 
 			foreach (var p in priorities)
@@ -50,10 +50,10 @@ namespace BugTrackerGetIT.Data
 			// Status
 			var status = new[]
 			{
-					new Status {Id = 1, Name = "New"},
-					new Status {Id = 2, Name = "Open"},
-					new Status {Id = 3, Name = "Resolved"},
-					new Status {Id = 4, Name = "Closed"}
+					new Status {Id = 1, StatusName = "New"},
+					new Status {Id = 2, StatusName = "Open"},
+					new Status {Id = 3, StatusName = "Resolved"},
+					new Status {Id = 4, StatusName = "Closed"}
 				};
 
 			foreach (var s in status)

@@ -11,14 +11,15 @@ using System;
 namespace BugTrackerGetIT.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180110210741_AddBasicClasses")]
-    partial class AddBasicClasses
+    [Migration("20180112131256_BasicClasses")]
+    partial class BasicClasses
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("BugTrackerGetIT.Models.ApplicationUser", b =>
                 {
@@ -73,7 +74,8 @@ namespace BugTrackerGetIT.Data.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex");
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -142,7 +144,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 {
                     b.Property<byte>("Id");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("CriticalityName")
                         .IsRequired();
 
                     b.HasKey("Id");
@@ -154,7 +156,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 {
                     b.Property<byte>("Id");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("PriorityName")
                         .IsRequired();
 
                     b.HasKey("Id");
@@ -166,7 +168,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 {
                     b.Property<byte>("Id");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("StatusName")
                         .IsRequired();
 
                     b.HasKey("Id");
@@ -192,7 +194,8 @@ namespace BugTrackerGetIT.Data.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex");
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
                 });
@@ -309,12 +312,12 @@ namespace BugTrackerGetIT.Data.Migrations
                     b.HasOne("BugTrackerGetIT.Models.Bug", "Bug")
                         .WithMany()
                         .HasForeignKey("BugId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("BugTrackerGetIT.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

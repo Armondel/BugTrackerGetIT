@@ -23,5 +23,15 @@ namespace BugTrackerGetIT.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+	    [Required]
+	    [StringLength(20, MinimumLength = 1)]
+	    [Display(Name = "First Name")]
+		public string FirstName { get; set; }
+
+	    [Required]
+	    [StringLength(20, MinimumLength = 1)]
+	    [Display(Name = "Last Name")]
+		public string LastName { get; set; }
     }
 }
