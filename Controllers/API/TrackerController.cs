@@ -41,6 +41,7 @@ namespace BugTrackerGetIT.Controllers.API
 
 		    return Ok(bugs);
 	    }
+
 		[Route("api/getbug/{id}")]
 		public IActionResult GetSingleBug(string id)
 		{
@@ -48,13 +49,35 @@ namespace BugTrackerGetIT.Controllers.API
 				return Json(new { message = "Access Denied" });
 
 			var bug = _context.Bugs
+				.Include(b => b.User)
+				.Include(b => b.Criticality)
+				.Include(b => b.Status)
+				.Include(b => b.Priority)
 				.FirstOrDefault(b => b.Id == id);
 
 			if (bug == null)
 				return NotFound();
 
 			return Ok(Mapper.Map<Bug, BugDto>(bug));
-
 		}
+
+	    [HttpPost]
+	    [Route("api/addbug")]
+	    [AutoValidateAntiforgeryToken]
+	    public IActionResult AddBug(DetailedBugDto modelDto)
+	    {
+		    if (!ModelState.IsValid)
+			    return BadRequest();
+
+		    var bug = Mapper.Map<DetailedBugDto, Bug>(modelDto);
+
+		    _context.Bugs.Add(bug);
+
+		    _context.SaveChanges();
+
+		    return Ok();
+	    }
+
+
 	}
 }

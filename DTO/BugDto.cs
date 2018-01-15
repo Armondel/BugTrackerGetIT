@@ -11,38 +11,20 @@ namespace BugTrackerGetIT.DTO
     public class BugDto
     {
 
-		[Key]
-	    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 	    public string Id { get; set; }
 
-	    [DataType(DataType.DateTime)]
-	    [DisplayFormat(DataFormatString = "{0:HH:mm dd:MM:yyyy}")]
-	    [Required]
 	    public DateTime DateCreated { get; set; }
 
-	    [MaxLength(50)]
 	    public string Preview { get; set; }
-	    public string Description { get; set; }
 
+	    public string UserUserName { get; set; }
 
-	    public UserDto User { get; set; }
+	    public string StatusName { get; set; }
 
-		[NotMapped]
-	    [Required]
-	    public string UserId { get; set; }
+	    public string PriorityName { get; set; }
 
-	    public StatusDto Status { get; set; }
+	    public string CriticalityName { get; set; }
 
-	    [Required]
-	    public byte StatusId { get; set; }
-
-	    public PriorityDto Priority { get; set; }
-	    [Required]
-	    public byte PriorityId { get; set; }
-
-	    public CriticalityDto Criticality { get; set; }
-	    [Required]
-	    public byte CriticalityId { get; set; }
 
 	}
 }

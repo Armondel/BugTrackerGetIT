@@ -39,7 +39,8 @@ namespace BugTrackerGetIT
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+				.UseContentRoot(Directory.GetCurrentDirectory())
+				.UseStartup<Startup>()
                 .Build();
     }
 }

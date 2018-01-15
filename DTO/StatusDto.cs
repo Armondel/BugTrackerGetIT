@@ -8,6 +8,6 @@ namespace BugTrackerGetIT.DTO
     public class StatusDto
     {
 	    public byte Id { get; set; }
-	    public string StatusName { get; set; }
+	    public string Name { get; set; }
     }
 }

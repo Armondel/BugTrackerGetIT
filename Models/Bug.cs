@@ -31,10 +31,11 @@ namespace BugTrackerGetIT.Models
         public byte StatusId  { get; set; }
 
         public Priority Priority { get; set; }
-        [Required]
+
+	    [Required]
         public byte PriorityId { get; set; }
 
-        public Criticality Criticality { get; set; }
+		public Criticality Criticality { get; set; }
         [Required]
         public byte CriticalityId { get; set; }
 

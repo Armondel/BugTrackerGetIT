@@ -144,7 +144,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 {
                     b.Property<byte>("Id");
 
-                    b.Property<string>("CriticalityName")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("Id");
@@ -156,7 +156,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 {
                     b.Property<byte>("Id");
 
-                    b.Property<string>("PriorityName")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("Id");
@@ -168,7 +168,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 {
                     b.Property<byte>("Id");
 
-                    b.Property<string>("StatusName")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("Id");

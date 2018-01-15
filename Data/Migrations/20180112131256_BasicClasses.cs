@@ -40,7 +40,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<byte>(nullable: false),
-                    CriticalityName = table.Column<string>(nullable: false)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,7 +52,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<byte>(nullable: false),
-                    PriorityName = table.Column<string>(nullable: false)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,7 +64,7 @@ namespace BugTrackerGetIT.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<byte>(nullable: false),
-                    StatusName = table.Column<string>(nullable: false)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

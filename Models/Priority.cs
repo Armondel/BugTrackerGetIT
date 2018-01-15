@@ -9,6 +9,6 @@ namespace BugTrackerGetIT.Models
         [Key]
         public byte Id { get; set; }
         [Required]
-        public string PriorityName { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "DataTables": "RELEASE_1_9_4"
+  },
+  "resolutions": {
+    "jquery": ">= 1.7.2"
+  }
+}
