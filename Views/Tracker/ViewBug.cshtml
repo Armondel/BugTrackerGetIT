@@ -1,10 +1,111 @@
 ﻿@model DetailedBugViewModel
 
 @{
-    ViewData["Title"] = "Bug Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Bug Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Bug #@Model.DetailedBugDto.Id</h2>
 
-<label></label>
+<form asp-controller="Tracker" asp-action="SaveBug" method="post">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.Id">Issue ID: </label>
+		@Model.DetailedBugDto.Id
+		<input asp-for="DetailedBugDto.Id" readonly="readonly" type="hidden" />
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.User.UserName">Created by: </label>
+		@Model.DetailedBugDto.User.UserName
+		<input asp-for="DetailedBugDto.User.UserName" readonly="readonly" type="hidden" />
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.DateCreated">Date Created: </label>
+		@Model.DetailedBugDto.DateCreated.ToString("MM/dd/yyyy HH:mm:ss")
+		<input asp-for="DetailedBugDto.DateCreated" type="hidden" readonly="readonly" />
+	</div>
+	<div>
+		<label asp-for="DetailedBugDto.Status.Name">Current status: </label>
+		@Model.DetailedBugDto.Status.Name
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.Preview">Preview</label>
+		<textarea style="resize: none" asp-for="DetailedBugDto.Preview" class="form-control" readonly="readonly"></textarea>
+		<span asp-validation-for="DetailedBugDto.Preview" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.PriorityId">Priority</label>
+		<select asp-for="DetailedBugDto.PriorityId" asp-items="@(new SelectList(Model.Priorities, "Id", "Name"))"></select>
+		<span asp-validation-for="DetailedBugDto.PriorityId"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.CriticalityId">Criticality</label>
+		<select asp-for="DetailedBugDto.CriticalityId" asp-items="@(new SelectList(Model.Criticalities, "Id", "Name"))"></select>
+		<span asp-validation-for="DetailedBugDto.CriticalityId"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.Description">Description</label>
+		<textarea style="resize: none" asp-for="DetailedBugDto.Description" class="form-control"></textarea>
+		<span asp-validation-for="DetailedBugDto.Description" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="DetailedBugDto.Comment">Comment</label>
+		<textarea style="resize: none" asp-for="DetailedBugDto.Comment" class="form-control"></textarea>
+		<span asp-validation-for="DetailedBugDto.Comment"></span>
+	</div>
+	@Html.Partial("Controls/_DefaultControls", Model)
+</form>
+<hr />
+<div>
+	<button id="historySwitch">Show history</button>
+</div>
+<div id="historyWrapper" style="display: none">
+	<table id="bugHistory" class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Data Changed</th>
+				<th>By User</th>
+				<th>To Status</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
+
+@section Scripts{
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#bugHistory').dataTable({
+				ajax: {
+					url: "/api/bughistory/@Model.DetailedBugDto.Id",
+					dataSrc: ""
+				},
+				columns: [
+					{
+						data: "dateChanged"
+					},
+					{
+						data: "user.userName"
+					},
+					{
+						data: "status.name"
+					},
+					{
+						data: "description"
+					}
+				]
+			});
+		});
+
+		$("#historySwitch").click(function() {
+			$("#historyWrapper").toggle();
+			}
+		);
+	</script>
+}

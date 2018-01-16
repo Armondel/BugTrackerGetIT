@@ -24,6 +24,11 @@ namespace BugTrackerGetIT.Models
         [StringLength(150, MinimumLength = 1)]
         public string Description { get; set; }
 
+	    public Status Status { get; set; }
+
+		[Required]
+	    public byte StatusId { get; set; }
+
         public ApplicationUser User { get; set; }
         [Required]
         public string UserId { get; set; }

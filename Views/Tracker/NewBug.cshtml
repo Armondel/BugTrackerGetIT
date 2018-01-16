@@ -12,11 +12,13 @@
 		<textarea style="resize: none" asp-for="DetailedBugDto.Preview" class="form-control"></textarea>
 		<span asp-validation-for="DetailedBugDto.Preview" class="text-danger"></span>
 	</div>
+
 	<div class="form-group">
 		<label asp-for="DetailedBugDto.PriorityId">Priority</label>
 		<select asp-for="DetailedBugDto.PriorityId" asp-items="@(new SelectList(Model.Priorities, "Id", "Name"))"></select>
 		<span asp-validation-for="DetailedBugDto.PriorityId"></span>
 	</div>
+
 	<div class="form-group">
 		<label asp-for="DetailedBugDto.CriticalityId">Criticality</label>
 		<select asp-for="DetailedBugDto.CriticalityId" asp-items="@(new SelectList(Model.Criticalities, "Id", "Name"))"></select>
@@ -28,7 +30,11 @@
 		<textarea style="resize: none" asp-for="DetailedBugDto.Description" class="form-control"></textarea>
 		<span asp-validation-for="DetailedBugDto.Description" class="text-danger"></span>
 	</div>
-	<input asp-for="DetailedBugDto.Id" type="hidden" value="0"/>
+	<input asp-for="DetailedBugDto.Id" type="hidden" value="0" readonly="readonly"/>
+	<input asp-for="DetailedBugDto.Comment" type="hidden" readonly="readonly"/>
+	<input asp-for="DetailedBugDto.StatusId" type="hidden" readonly="readonly"/>
+	<input asp-for="DetailedBugDto.DateCreated" type="hidden" readonly="readonly"/>
+	<input asp-for="DetailedBugDto.UserId" type="hidden" readonly="readonly"/>
 	<button type="submit" class="btn btn-primary">Save</button>
 </form>
 

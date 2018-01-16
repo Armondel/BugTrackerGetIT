@@ -13,18 +13,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackerGetIT.Controllers.API
 {
-	//[Authorize]
+	[Authorize]
     [Produces("application/json")]
-    public class TrackerController : Controller
+    public class ApiController : Controller
     {
 	    private readonly ApplicationDbContext _context;
 
-	    public TrackerController(ApplicationDbContext context)
+	    public ApiController(ApplicationDbContext context)
 	    {
 		    _context = context;
 	    }
 
-		[AllowAnonymous]
 		[Route("api/getbugs")]
 	    public IActionResult GetBugs()
 	    {
@@ -42,40 +41,20 @@ namespace BugTrackerGetIT.Controllers.API
 		    return Ok(bugs);
 	    }
 
-		[Route("api/getbug/{id}")]
-		public IActionResult GetSingleBug(string id)
-		{
-			if (!User.Identity.IsAuthenticated)
-				return Json(new { message = "Access Denied" });
-
-			var bug = _context.Bugs
-				.Include(b => b.User)
-				.Include(b => b.Criticality)
-				.Include(b => b.Status)
-				.Include(b => b.Priority)
-				.FirstOrDefault(b => b.Id == id);
-
-			if (bug == null)
-				return NotFound();
-
-			return Ok(Mapper.Map<Bug, BugDto>(bug));
-		}
-
-	    [HttpPost]
-	    [Route("api/addbug")]
-	    [AutoValidateAntiforgeryToken]
-	    public IActionResult AddBug(DetailedBugDto modelDto)
+	    [Route("api/bughistory/{id}")]
+	    public IActionResult GetHistory(string id)
 	    {
-		    if (!ModelState.IsValid)
-			    return BadRequest();
+		    if (!User.Identity.IsAuthenticated)
+			    return Json(new {message = "Access Denied"});
 
-		    var bug = Mapper.Map<DetailedBugDto, Bug>(modelDto);
+		    var bugHistory = _context.BugHistory
+			    .Include(r => r.User)
+				.Include(r => r.Status)
+			    .Where(r => r.BugId == id)
+			    .ToList()
+			    .Select(Mapper.Map<BugHistory, BugHistoryDto>);
 
-		    _context.Bugs.Add(bug);
-
-		    _context.SaveChanges();
-
-		    return Ok();
+		    return Ok(bugHistory);
 	    }
 
 

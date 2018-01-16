@@ -1,0 +1,20 @@
+﻿@model DetailedBugViewModel
+
+@switch (Model.DetailedBugDto.StatusId)
+{
+	case 1:
+		<button type="submit" name="status" value="Open">Start Progress</button>
+		break;
+	case 2:
+		<button type="submit" name="status" value="Resolve">Resolve issue</button>
+		break;
+	case 3:
+		<button type="submit" name="status" value="Open">Reopen issue</button>
+		<button type="submit" name="status" value="Close">Close issue</button>
+		break;
+	default:
+		break;
+
+}
+
+

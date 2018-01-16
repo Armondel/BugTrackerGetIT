@@ -7,11 +7,14 @@ using BugTrackerGetIT.Data;
 using BugTrackerGetIT.DTO;
 using BugTrackerGetIT.Models;
 using BugTrackerGetIT.Models.TrackerViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BugTrackerGetIT.Controllers
 {
+	[Authorize]
 	public class TrackerController : Controller
 	{
 		private readonly ApplicationDbContext _context;
@@ -35,9 +38,21 @@ namespace BugTrackerGetIT.Controllers
 		[Route("/tracker/bug/{id}")]
 		public IActionResult ViewBug(string id)
 		{
-			// TBD
+			var bug = _context.Bugs.
+				Include(b => b.User).
+				Include(b => b.Status).
+				SingleOrDefault(b => b.Id == id);
+			if (bug == null)
+				return NotFound();
 
-			return View();
+			var bugModel = new DetailedBugViewModel
+			{
+				DetailedBugDto = Mapper.Map<Bug, DetailedBugDto>(bug),
+				Priorities = _context.Priority.ToList(),
+				Criticalities = _context.Criticality.ToList()
+			};
+
+			return View(bugModel);
 		}
 
 		[Route("/tracker/new")]
@@ -45,7 +60,13 @@ namespace BugTrackerGetIT.Controllers
 		{
 			var bugModel = new DetailedBugViewModel
 			{
-				DetailedBugDto = new DetailedBugDto(),
+				DetailedBugDto = new DetailedBugDto
+				{
+					Comment = "The issue created",
+					DateCreated = DateTime.Now,
+					UserId = _userManager.GetUserId(HttpContext.User),
+					StatusId = 1
+				},
 				Criticalities = _context.Criticality.ToList(),
 				Priorities = _context.Priority.ToList()
 			};
@@ -55,12 +76,8 @@ namespace BugTrackerGetIT.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> SaveBug(DetailedBugDto detailedBugDto)
+		public async Task<IActionResult> SaveBug(DetailedBugDto detailedBugDto, string status)
 		{
-			detailedBugDto.UserId = _userManager.GetUserId(HttpContext.User);
-			detailedBugDto.DateCreated = DateTime.Now;
-			if (detailedBugDto.StatusId == 0)
-				detailedBugDto.StatusId = 1;
 			if (!ModelState.IsValid)
 			{
 				var bugModel = new DetailedBugViewModel
@@ -73,16 +90,38 @@ namespace BugTrackerGetIT.Controllers
 				return View("NewBug", bugModel);
 			}
 
-			var bug = Mapper.Map<DetailedBugDto, Bug>(detailedBugDto);
-
-			lock (_context)
+			switch (status)
 			{
-				_context.Bugs.Add(bug);
-
-				_context.SaveChanges();
+				case "Open":
+					detailedBugDto.StatusId = 2;
+					break;
+				case "Resolve":
+					detailedBugDto.StatusId = 3;
+					break;
+				case "Close":
+					detailedBugDto.StatusId = 4;
+					break;
+				default:
+					detailedBugDto.StatusId = 1;
+					break;
 			}
 
+			var bug = _context.Bugs.SingleOrDefault(b => b.Id == detailedBugDto.Id);
+			if (bug == null)
+			{
+				bug = Mapper.Map<DetailedBugDto, Bug>(detailedBugDto);
+				_context.Bugs.Add(bug);
+			}
+			else
+			{
+				bug.Description = detailedBugDto.Description;
+				bug.PriorityId = detailedBugDto.PriorityId;
+				bug.CriticalityId = detailedBugDto.CriticalityId;
+				bug.StatusId = detailedBugDto.StatusId;
+			}
 			var bugRecord = Mapper.Map<Bug, BugHistoryDto>(bug);
+
+			bugRecord.Description = detailedBugDto.Comment;
 
 			await SaveToHistoryAsyncResult(bugRecord);
 
@@ -94,11 +133,7 @@ namespace BugTrackerGetIT.Controllers
 		{
 			var record = Mapper.Map<BugHistoryDto, BugHistory>(recordDto);
 
-			if (record.Description == null)
-				record.Description = "Bug Created";
-
-			if (record.DateChanged.Year == 1)
-				record.DateChanged = DateTime.Now;
+			record.DateChanged = DateTime.Now;
 
 			_context.BugHistory.Add(record);
 

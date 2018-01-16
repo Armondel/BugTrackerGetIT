@@ -21,7 +21,13 @@ namespace BugTrackerGetIT.DTO
 
 	    public string Description { get; set; }
 
-	    [Required]
+	    public UserDto User { get; set; }
+
 	    public string UserId { get; set; }
+
+	    public StatusDto Status { get; set; }
+
+	    public byte StatusId { get; set; }
+
 	}
 }

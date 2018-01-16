@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BugTrackerGetIT.Data;
 using BugTrackerGetIT.Models;
 using BugTrackerGetIT.Services;
+using Newtonsoft.Json;
 
 namespace BugTrackerGetIT
 {
@@ -37,9 +38,12 @@ namespace BugTrackerGetIT
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options =>
+	            {
+		            options.SerializerSettings.DateFormatString = "MM/dd/yyyy HH:mm:ss";
+	            }); ;
 
-	        services.AddAutoMapper();
+			services.AddAutoMapper();
         }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
