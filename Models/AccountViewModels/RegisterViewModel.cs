@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,10 @@ namespace BugTrackerGetIT.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
+		[Required]
+		[Display(Name = "Username")]
+		public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

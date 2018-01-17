@@ -35,6 +35,9 @@
 	            <ul class="nav navbar-nav">
 		            <li><a asp-area="" asp-controller="Tracker" asp-action="NewBug">New Bug</a></li>
 	            </ul>
+	            <ul class="nav navbar-nav">
+		            <li><a asp-area="" asp-controller="Account" asp-action="Users">System users</a></li>
+				</ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>

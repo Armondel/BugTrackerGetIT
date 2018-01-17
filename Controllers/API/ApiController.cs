@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace BugTrackerGetIT.Controllers.API
 {
@@ -55,6 +56,19 @@ namespace BugTrackerGetIT.Controllers.API
 			    .Select(Mapper.Map<BugHistory, BugHistoryDto>);
 
 		    return Ok(bugHistory);
+	    }
+
+	    [Route("api/getuserlist")]
+	    public IActionResult GetUsers()
+	    {
+		    if (!User.Identity.IsAuthenticated)
+			    return Json(new {message = "Access Denied"});
+
+		    var userDtoList = _context.Users
+			    .ToList()
+			    .Select(Mapper.Map<ApplicationUser, UserDto>);
+
+		    return Ok(userDtoList);
 	    }
 
 
