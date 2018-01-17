@@ -51,7 +51,7 @@ You can start work with app :
 * New bug link								**done**
 * Bug table link							**done**
 * New user link								**partly**
-* List of users link						**no**
+* List of users link						**done**
 * Logout									**done**
 
 
