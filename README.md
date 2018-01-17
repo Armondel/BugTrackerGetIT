@@ -34,6 +34,7 @@ You can start work with app :
 
 3. UI functionality:
 * Authentification							**done**
+
 3.1 Wokring with bugs/errors:					
 * Creating									**done**
 * Editing									**partly**
