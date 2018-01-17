@@ -1,16 +1,16 @@
 # BugTrackerGetIT
 
-#System requirements
+# System requirements
 
 MSSql local database
 
-#Installing
+# Installing
 
 Clone this repository or just load zip archive.
 Open with Visual Studio.
 On first launch it might take some extra time to run, due to database initialization (creating datatables and so on)
 
-#Usage
+# Usage
 
 You can start work with app :
 
@@ -19,9 +19,8 @@ You can start work with app :
 3) Fill required fields(there jquery validation for that on client side ;) )
 4) after creating go to "bug tracker" and find your issue
 
-#Specification
+# Specification
 
-##Desired
 -Create system using ASP.NET Core 2.0 MVC	[guess done]
 -System functionality:						
 --Enter data in DB							[done]
@@ -56,7 +55,7 @@ You can start work with app :
 --Logout									[done]
 
 
-##Browser compatability
+## Browser compatability
 
 Chrome:	[success]
 IE 11:	[success]
