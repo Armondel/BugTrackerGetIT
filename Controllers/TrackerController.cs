@@ -52,7 +52,7 @@ namespace BugTrackerGetIT.Controllers
 				Criticalities = _context.Criticality.ToList()
 			};
 
-			return View(bugModel);
+			return bugModel.DetailedBugDto.StatusId == 4 ? View("ClosedViewBug", bugModel) : View("ViewBug", bugModel);
 		}
 
 		[Route("/tracker/new")]
