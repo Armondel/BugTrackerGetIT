@@ -15,9 +15,10 @@ On first launch it might take some extra time to run, due to database initializa
 You can start work with app :
 
 1) Create user (you can use fake email for sure)
-2) Go to "net bug"
+2) Go to "New Bug"
 3) Fill required fields(there jquery validation for that on client side ;) )
-4) after creating go to "bug tracker" and find your issue
+4) after creating go to "Bug Tracker" and find your issue
+*Depending on current bug status, you will be allowed to perform several operations: as the example if you have new issue you only allowed to "Open" it, but if your bug has "Resolved" status you can choose between reopen issue ("Open") or close it ("Close")*
 
 ## Specification
 
