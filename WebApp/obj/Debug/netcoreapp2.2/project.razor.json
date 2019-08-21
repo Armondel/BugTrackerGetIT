@@ -2948,143 +2948,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Manage\\ExternalLogins.cshtml",
-      "TargetPath": "Views\\Manage\\ExternalLogins.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\Login.cshtml",
-      "TargetPath": "Views\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\LoginWith2fa.cshtml",
-      "TargetPath": "Views\\Account\\LoginWith2fa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Tracker\\NewBug.cshtml",
-      "TargetPath": "Views\\Tracker\\NewBug.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\ResetPasswordConfirmation.cshtml",
-      "TargetPath": "Views\\Account\\ResetPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\_ManageNav.cshtml",
-      "TargetPath": "Views\\Manage\\_ManageNav.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\ForgotPasswordConfirmation.cshtml",
-      "TargetPath": "Views\\Account\\ForgotPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\ExternalLogin.cshtml",
-      "TargetPath": "Views\\Account\\ExternalLogin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\GenerateRecoveryCodes.cshtml",
-      "TargetPath": "Views\\Manage\\GenerateRecoveryCodes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\_Layout.cshtml",
-      "TargetPath": "Views\\Manage\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\ForgotPassword.cshtml",
-      "TargetPath": "Views\\Account\\ForgotPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\ResetAuthenticator.cshtml",
-      "TargetPath": "Views\\Manage\\ResetAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\Lockout.cshtml",
-      "TargetPath": "Views\\Account\\Lockout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\AccessDenied.cshtml",
-      "TargetPath": "Views\\Account\\AccessDenied.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Account\\ResetPassword.cshtml",
-      "TargetPath": "Views\\Account\\ResetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\ConfirmEmail.cshtml",
-      "TargetPath": "Views\\Account\\ConfirmEmail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\Disable2fa.cshtml",
-      "TargetPath": "Views\\Manage\\Disable2fa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\LoginWithRecoveryCode.cshtml",
-      "TargetPath": "Views\\Account\\LoginWithRecoveryCode.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\SignedOut.cshtml",
-      "TargetPath": "Views\\Account\\SignedOut.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\TwoFactorAuthentication.cshtml",
-      "TargetPath": "Views\\Manage\\TwoFactorAuthentication.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\Users.cshtml",
-      "TargetPath": "Views\\Account\\Users.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Account\\Register.cshtml",
-      "TargetPath": "Views\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\_StatusMessage.cshtml",
-      "TargetPath": "Views\\Manage\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\Index.cshtml",
-      "TargetPath": "Views\\Manage\\Index.cshtml",
+      "FilePath": "Views\\Home\\Home.cshtml",
+      "TargetPath": "Views\\Home\\Home.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3093,38 +2963,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Tracker\\Controls\\_DefaultControls.cshtml",
-      "TargetPath": "Views\\Tracker\\Controls\\_DefaultControls.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\ChangePassword.cshtml",
-      "TargetPath": "Views\\Manage\\ChangePassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\SetPassword.cshtml",
-      "TargetPath": "Views\\Manage\\SetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\EnableAuthenticator.cshtml",
-      "TargetPath": "Views\\Manage\\EnableAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Tracker\\Index.cshtml",
-      "TargetPath": "Views\\Tracker\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Manage\\_ViewImports.cshtml",
-      "TargetPath": "Views\\Manage\\_ViewImports.cshtml",
       "FileKind": "mvc"
     }
   ],

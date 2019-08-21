@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\WebApp.csproj",
-        "projectName": "WebApp",
-        "projectPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Persistence\\Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\dimae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\obj\\",
+        "outputPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -103,10 +103,6 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -121,6 +117,75 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\WebApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\WebApp.csproj",
+        "projectName": "WebApp",
+        "projectPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\WebApp.csproj",
+        "packagesPath": "C:\\Users\\dimae\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\WebApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dimae\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Core\\Core.csproj"
+              },
+              "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\dimae\\source\\repos\\BugTrackerGetIT\\Persistence\\Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",

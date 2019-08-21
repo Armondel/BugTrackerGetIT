@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BugTrackerGetIT.Core.Bug;
+using BugTrackerGetIT.Core.BugHistory;
 using BugTrackerGetIT.WebApp.DTO;
 using BugTrackerGetIT.WebApp.Models;
 

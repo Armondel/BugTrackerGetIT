@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using BugTrackerGetIT.Core.Bug;
-using BugTrackerGetIT.Core.User;
-using BugTrackerGetIT.WebApp.Data;
-using BugTrackerGetIT.WebApp.DTO;
-using BugTrackerGetIT.WebApp.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
-
-namespace BugTrackerGetIT.WebApp.Controllers.API
+﻿namespace BugTrackerGetIT.WebApp.Controllers.API
 {
-	[Authorize]
+	using System.Collections.Generic;
+	using System.Linq;
+	using AutoMapper;
+	using BugTrackerGetIT.Core.Bug;
+	using BugTrackerGetIT.Core.BugHistory;
+	using BugTrackerGetIT.Core.User;
+	using BugTrackerGetIT.WebApp.Data;
+	using BugTrackerGetIT.WebApp.DTO;
+	using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Mvc;
+	using Microsoft.EntityFrameworkCore;
+
+    [Authorize]
     [Produces("application/json")]
     public class ApiController : Controller
     {
@@ -49,7 +45,6 @@ namespace BugTrackerGetIT.WebApp.Controllers.API
 			    return Json(new {message = "Access Denied"});
 
 		    var bugHistory = _mapper.Map<IEnumerable<BugHistory>, IEnumerable<BugHistoryDto>>(_context.BugHistory
-			    .Include(r => r.User)
 				.Include(r => r.Status)
 			    .Where(r => r.BugId == id)
 			    .ToList());

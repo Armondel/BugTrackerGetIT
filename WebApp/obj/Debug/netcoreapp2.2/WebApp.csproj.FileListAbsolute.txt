@@ -59,3 +59,5 @@ C:\Users\dimae\source\repos\BugTrackerGetIT\WebApp\bin\Debug\netcoreapp2.2\Core.
 C:\Users\dimae\source\repos\BugTrackerGetIT\WebApp\bin\Debug\netcoreapp2.2\Core.pdb
 C:\Users\dimae\source\repos\BugTrackerGetIT\WebApp\obj\Debug\netcoreapp2.2\WebApp.Views.pdb
 C:\Users\dimae\source\repos\BugTrackerGetIT\WebApp\obj\Debug\netcoreapp2.2\WebApp.csproj.CopyComplete
+C:\Users\dimae\source\repos\BugTrackerGetIT\WebApp\bin\Debug\netcoreapp2.2\Persistence.dll
+C:\Users\dimae\source\repos\BugTrackerGetIT\WebApp\bin\Debug\netcoreapp2.2\Persistence.pdb
