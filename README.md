@@ -2,64 +2,56 @@
 
 ## System requirements
 
-MSSql local database
+Postgres local base
 
 ## Installing
 
-Clone this repository or just load zip archive.
-Open with Visual Studio.
-On first launch it might take some extra time to run, due to database initialization (creating datatables and so on)
+No special requirements is needed, just make sure that Postgres instance is running, and connection string from appsettings is correct.
 
 ## Usage
 
-You can start work with app :
-
-1) Create user (you can use fake email for sure)
-2) Go to "New Bug"
-3) Fill required fields(there jquery validation for that on client side ;) )
-4) after creating go to "Bug Tracker" and find your issue
-*Depending on current bug status, you will be allowed to perform several operations: as the example if you have new issue you only allowed to "Open" it, but if your bug has "Resolved" status you can choose between reopen issue ("Open") or close it ("Close")*
+TBD
 
 ## Specification
 
-1. Create system using ASP.NET Core 2.0 MVC	**guess done**
+1. Create system using ASP.NET Core 2.0 MVC	**WIP**
 2. System functionality:						
-* Enter data in DB							**done**
-* Save data in DB							**done**
-* It is possible to check error list		**done**
-* Authentification							**done**
-* No anonimous access						**done**
-* Fixed error lifecycle						**done**
-* Fullfilin given DB models					**done**
+* Enter data in DB							**WIP**
+* Save data in DB							**WIP**
+* It is possible to check error list		**WIP**
+* Authentification							**WIP**
+* No anonimous access						**WIP**
+* Fixed error lifecycle						**WIP**
+* Fullfilin given DB models					**WIP**
 
 3. UI functionality:
-* Authentification							**done**
+* Authentification							**WIP**
 
 3.1 Wokring with bugs/errors:					
-* Creating									**done**
-* Editing									**partly**
-* Bug history in separate table			**done**
-* Buttons for status changing				**done**
-* Required comment on status change		**done**
+* Creating									**WIP**
+* Editing									**WIP**
+* Bug history in separate table			    **WIP**
+* Buttons for status changing				**WIP**
+* Required comment on status change		    **WIP**
 
 3.2 Bug/Error List:
-* Sorting									**done**
-* Links to detailed bug/error view			**done**
+* Sorting									**WIP**
+* Links to detailed bug/error view			**WIP**
 
 4. User:
-* Editing user information					**default**
+* Editing user information					**WIP**
 
 5. Each Page:
-* New bug link								**done**
-* Bug table link							**done**
-* New user link								**partly**
-* List of users link						**done**
-* Logout									**done**
+* New bug link								**WIP**
+* Bug table link							**WIP**
+* New user link								**WIP**
+* List of users link						**WIP**
+* Logout									**WIP**
 
 
 ## Browser compatability
 
-Chrome:	**success**
-IE 11:	**success**
+Chrome:	                                    **WIP**
+IE 11:	                                    **WIP**
 
 
