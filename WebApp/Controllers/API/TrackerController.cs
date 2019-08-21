@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BugTrackerGetIT.Core.Bug;
 using BugTrackerGetIT.Core.BugHistory;
+using BugTrackerGetIT.Core.User;
 using BugTrackerGetIT.WebApp.Data;
 using BugTrackerGetIT.WebApp.DTO;
 using BugTrackerGetIT.WebApp.Models;
@@ -20,10 +21,10 @@ namespace BugTrackerGetIT.WebApp.Controllers
 	public class TrackerController : Controller
 	{
 		private readonly ApplicationDbContext _context;
-		private readonly UserManager<ApplicationUser> _userManager;
+		private readonly UserManager<User> _userManager;
 		private readonly IMapper _mapper;
 
-		public TrackerController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IMapper mapper)
+		public TrackerController(ApplicationDbContext context, UserManager<User> userManager, IMapper mapper)
 		{
 			_context = context;
 			_userManager = userManager;

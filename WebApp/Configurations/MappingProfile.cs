@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using BugTrackerGetIT.Core.Bug;
 using BugTrackerGetIT.Core.BugHistory;
+using BugTrackerGetIT.Core.User;
 using BugTrackerGetIT.WebApp.DTO;
-using BugTrackerGetIT.WebApp.Models;
 
-namespace BugTrackerGetIT.WebApp.Services
+namespace BugTrackerGetIT.WebApp.Configurations
 {
     public class MappingProfile : Profile
     {
@@ -17,7 +13,7 @@ namespace BugTrackerGetIT.WebApp.Services
 			//Mapping from Domain to DTO
 		    CreateMap<Bug, BugDto>();
 		    CreateMap<Bug, DetailedBugDto>();
-		    CreateMap<ApplicationUser, UserDto>();
+		    CreateMap<User, UserDto>();
 		    CreateMap<BugHistory, BugHistoryDto>();
 		    CreateMap<Bug, BugHistoryDto>().
 			    ForMember(dest => dest.BugId, opts => opts.MapFrom(src => src.Id)).

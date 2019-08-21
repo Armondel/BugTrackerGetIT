@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BugTrackerGetIT.WebApp.Data;
-using BugTrackerGetIT.WebApp.Models;
-using BugTrackerGetIT.WebApp.Services;
-using Newtonsoft.Json;
+using BugTrackerGetIT.Core.User;
+using BugTrackerGetIT.WebApp.Configurations;
 
 namespace BugTrackerGetIT
 {
@@ -31,12 +26,9 @@ namespace BugTrackerGetIT
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc().AddJsonOptions(options =>
 	            {
