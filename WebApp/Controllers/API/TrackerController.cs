@@ -6,6 +6,7 @@ using AutoMapper;
 using BugTrackerGetIT.Core.Bug;
 using BugTrackerGetIT.Core.BugHistory;
 using BugTrackerGetIT.Core.User;
+using BugTrackerGetIT.Persistence;
 using BugTrackerGetIT.WebApp.Data;
 using BugTrackerGetIT.WebApp.DTO;
 using BugTrackerGetIT.WebApp.Models;
@@ -29,7 +30,6 @@ namespace BugTrackerGetIT.WebApp.Controllers
 			_context = context;
 			_userManager = userManager;
 			_mapper = mapper;
-
 		}
 
 		[Route("/tracker/all")]
@@ -113,7 +113,6 @@ namespace BugTrackerGetIT.WebApp.Controllers
 				bug.Description = detailedBugDto.Description;
 				bug.Priority = detailedBugDto.Priority;
 				bug.Criticality = detailedBugDto.Criticality;
-				bug.Status = detailedBugDto.Status;
 			}
 			var bugRecord = _mapper.Map<Bug, BugHistoryDto>(bug);
 

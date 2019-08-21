@@ -1,7 +1,7 @@
 ﻿using System;
+using BugTrackerGetIT.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BugTrackerGetIT.WebApp.Data.Migrations

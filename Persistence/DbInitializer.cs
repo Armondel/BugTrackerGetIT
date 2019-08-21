@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace BugTrackerGetIT.WebApp.Data
+namespace BugTrackerGetIT.Persistence
 {
     public static class DbInitializer
 	{

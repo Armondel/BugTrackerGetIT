@@ -6,7 +6,7 @@
 	using BugTrackerGetIT.Core.Bug;
 	using BugTrackerGetIT.Core.BugHistory;
 	using BugTrackerGetIT.Core.User;
-	using BugTrackerGetIT.WebApp.Data;
+    using BugTrackerGetIT.Persistence;
 	using BugTrackerGetIT.WebApp.DTO;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;

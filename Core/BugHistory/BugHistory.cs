@@ -2,11 +2,10 @@ namespace BugTrackerGetIT.Core.BugHistory
 {
     using System;
     using Bug;
+    using BugTrackerGetIT.Core.Abstraction;
 
-    public class BugHistory
+    public class BugHistory : DomainModel
     {
-        public string Id { get; set; }
-
         public Bug Bug { get; set; }
 
         public string BugId { get; set; }

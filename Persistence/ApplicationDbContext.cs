@@ -1,4 +1,4 @@
-﻿namespace BugTrackerGetIT.WebApp.Data
+﻿namespace BugTrackerGetIT.Persistence
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;

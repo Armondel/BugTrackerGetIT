@@ -2,6 +2,24 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "CSharpFunctionalExtensions/1.19.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CSharpFunctionalExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpFunctionalExtensions.dll": {}
+        }
+      },
+      "MediatR/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MediatR.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4442,6 +4460,10 @@
       "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "CSharpFunctionalExtensions": "1.19.1",
+          "MediatR": "7.0.0"
+        },
         "compile": {
           "bin/placeholder/Core.dll": {}
         },
@@ -4452,6 +4474,33 @@
     }
   },
   "libraries": {
+    "CSharpFunctionalExtensions/1.19.1": {
+      "sha512": "cv0Me/MC9PmHI0PUIXKbLV074VDmeyq9ck9xifDMRGADs/ZwQS4Euf55SDxA8HTyJde3Nrj9mLsUxEwo9slyLA==",
+      "type": "package",
+      "path": "csharpfunctionalextensions/1.19.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "csharpfunctionalextensions.1.19.1.nupkg.sha512",
+        "csharpfunctionalextensions.nuspec",
+        "lib/net45/CSharpFunctionalExtensions.dll",
+        "lib/net461/CSharpFunctionalExtensions.dll",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.dll"
+      ]
+    },
+    "MediatR/7.0.0": {
+      "sha512": "sgfHxkBsmMlHOD564SnLqTvSbAuGlFiZfc6ybxBSI1wYV/2u+Y5TXtFoIhCISFg5/s/6aMvB338QC2JseHsjTA==",
+      "type": "package",
+      "path": "mediatr/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/MediatR.dll",
+        "lib/netstandard2.0/MediatR.dll",
+        "mediatr.7.0.0.nupkg.sha512",
+        "mediatr.nuspec"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
       "type": "package",

@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BugTrackerGetIT.WebApp.Data;
 using BugTrackerGetIT.Core.User;
 using BugTrackerGetIT.WebApp.Configurations;
+using BugTrackerGetIT.Persistence;
 
 namespace BugTrackerGetIT
 {
@@ -20,7 +21,6 @@ namespace BugTrackerGetIT
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -38,7 +38,6 @@ namespace BugTrackerGetIT
 			services.AddAutoMapper(typeof(MappingProfile));
         }
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 	    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 	    {
 		    if (env.IsDevelopment())
