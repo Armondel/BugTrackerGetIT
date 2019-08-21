@@ -6,13 +6,12 @@
 	using BugTrackerGetIT.Core.Bug;
 	using BugTrackerGetIT.Core.BugHistory;
 	using BugTrackerGetIT.Core.User;
-    using BugTrackerGetIT.Persistence;
+    using BugTrackerGetIT.Persistence.DbConfiguration;
 	using BugTrackerGetIT.WebApp.DTO;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;
 	using Microsoft.EntityFrameworkCore;
 
-    [Authorize]
     [Produces("application/json")]
     public class ApiController : Controller
     {
@@ -28,9 +27,6 @@
 		[Route("api/getbugs")]
 	    public IActionResult GetBugs()
 	    {
-		    if (!User.Identity.IsAuthenticated)
-			    return Json(new {message = "Access Denied"});
-
 		    var bugs = _mapper.Map<IEnumerable<Bug>, IEnumerable<BugDto>>(_context.Bugs
 			    .Include(b => b.User)
 				.ToList());

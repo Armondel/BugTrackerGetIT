@@ -5,10 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using BugTrackerGetIT.WebApp.Data;
 using BugTrackerGetIT.Core.User;
 using BugTrackerGetIT.WebApp.Configurations;
-using BugTrackerGetIT.Persistence;
+using BugTrackerGetIT.Persistence.DbConfiguration;
 
 namespace BugTrackerGetIT
 {
@@ -23,8 +22,9 @@ namespace BugTrackerGetIT
 
         public void ConfigureServices(IServiceCollection services)
         {
+			// DB configuration
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -33,7 +33,7 @@ namespace BugTrackerGetIT
             services.AddMvc().AddJsonOptions(options =>
 	            {
 		            options.SerializerSettings.DateFormatString = "MM/dd/yyyy HH:mm:ss";
-	            }); ;
+	            });
 
 			services.AddAutoMapper(typeof(MappingProfile));
         }

@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace BugTrackerGetIT.Persistence
+﻿namespace BugTrackerGetIT.Persistence.DbConfiguration
 {
+	using Microsoft.EntityFrameworkCore;
+	
     public static class DbInitializer
 	{
 		public static void Initialize(ApplicationDbContext context)

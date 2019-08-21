@@ -5,6 +5,7 @@ namespace BugTrackerGetIT.Persistence.Base
     using System.Linq;
     using System.Threading.Tasks;
     using BugTrackerGetIT.Core.Abstraction;
+    using BugTrackerGetIT.Persistence.DbConfiguration;
     using CSharpFunctionalExtensions;
 
     public class BaseRepository<T> : IDomainRepository<T> where T : DomainModel

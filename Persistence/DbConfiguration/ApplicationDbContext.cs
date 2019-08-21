@@ -1,18 +1,21 @@
-﻿namespace BugTrackerGetIT.Persistence
+﻿namespace BugTrackerGetIT.Persistence.DbConfiguration
 {
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using BugTrackerGetIT.Core.Bug;
     using BugTrackerGetIT.Core.User;
     using BugTrackerGetIT.Core.BugHistory;
 
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : DbContext     
     {
         public DbSet<Bug> Bugs { get; set; }
         public DbSet<BugHistory> BugHistory { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
         }
 
