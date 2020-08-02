@@ -2,15 +2,46 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>API</RootNamespace>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Ardalis.ApiEndpoints" Version="1.0.0" />
+      <PackageReference Include="HybridModelBinding" Version="0.18.0" />
+      <PackageReference Include="Lamar" Version="4.3.1" />
+      <PackageReference Include="Lamar.Microsoft.DependencyInjection" Version="4.3.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.5.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.5.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\BugTracker.Application\BugTracker.Application.csproj" />
+      <ProjectReference Include="..\BugTracker.Identity\BugTracker.Identity.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Endpoints\Identity\Authenticate.Request.cs">
+        <DependentUpon>Authenticate.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Endpoints\Identity\Authenticate.Response.cs">
+        <DependentUpon>Authenticate.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Endpoints\Tests\GetSampleAuthorized.Request.cs">
+        <DependentUpon>GetSampleAuthorized.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Endpoints\Tests\GetSampleAuthorized.Response.cs">
+        <DependentUpon>GetSampleAuthorized.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Endpoints\Tests\GetSampleAnonymous.Response.cs">
+        <DependentUpon>GetSampleAnonymous.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Abstraction" />
     </ItemGroup>
 
 

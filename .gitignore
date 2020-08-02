@@ -5,3 +5,4 @@
 /.vs/BugTrackerGetIT/v15/Server/sqlite3
 **/.idea/**
 **/obj/**
+**/bin/**

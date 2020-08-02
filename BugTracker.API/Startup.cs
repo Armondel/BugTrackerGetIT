@@ -1,5 +1,6 @@
-namespace API
+namespace BugTracker.API
 {
+	using BugTracker.API.Configuration;
 	using Microsoft.AspNetCore.Builder;
 	using Microsoft.AspNetCore.Hosting;
 	using Microsoft.Extensions.Configuration;
@@ -18,7 +19,11 @@ namespace API
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
+			AuthenticationConfiguration.Configure(services, Configuration);
+			// TODO: enable cors to work properly
+			services.AddCors();
+			IdentityConfiguration.Configure(services);
+			SwaggerConfiguration.Configure(services);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,9 +36,15 @@ namespace API
 
 			app.UseHttpsRedirection();
 
+			app.UseDefaultFiles();
+			app.UseStaticFiles();
+
 			app.UseRouting();
+			
+			app.UseCors();
 
 			app.UseAuthorization();
+			app.UseAuthentication();
 
 			app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 		}

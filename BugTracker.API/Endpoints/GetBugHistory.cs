@@ -1,4 +1,4 @@
-namespace API.Endpoints
+namespace BugTracker.API.Endpoints
 {
 	using Ardalis.ApiEndpoints;
 
