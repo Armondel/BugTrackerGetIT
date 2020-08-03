@@ -19,9 +19,8 @@ namespace BugTracker.API
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			PersistenceConfiguration.Configure(services, Configuration);
 			AuthenticationConfiguration.Configure(services, Configuration);
-			// TODO: enable cors to work properly
-			services.AddCors();
 			IdentityConfiguration.Configure(services);
 			SwaggerConfiguration.Configure(services);
 		}
@@ -40,8 +39,6 @@ namespace BugTracker.API
 			app.UseStaticFiles();
 
 			app.UseRouting();
-			
-			app.UseCors();
 
 			app.UseAuthorization();
 			app.UseAuthentication();

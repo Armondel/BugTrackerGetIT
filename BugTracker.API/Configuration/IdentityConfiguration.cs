@@ -1,6 +1,7 @@
 namespace BugTracker.API.Configuration
 {
 	using System;
+	using BugTracker.Persistence;
 	using LanguageExt;
 	using Microsoft.AspNetCore.Identity;
 	using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,9 @@ namespace BugTracker.API.Configuration
 	{
 		public static Unit Configure(IServiceCollection services)
 		{
+			services.AddIdentity<IdentityUser, IdentityRole>()
+					.AddEntityFrameworkStores<IdentityContext>();
+			
 			services.Configure<IdentityOptions>(options =>
 			{
 				// Password settings.
