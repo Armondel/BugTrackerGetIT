@@ -2,14 +2,13 @@ namespace BugTracker.API.Configuration
 {
 	using BugTracker.SharedKernel.Abstract;
 	using Lamar;
-	using LanguageExt;
 
 	public static class IoCContainerConfiguration
 	{
 		public static ServiceRegistry CreateServiceRegistry()
 		{
-			var services = new ServiceRegistry();
-			services.Scan(scan =>
+			var registry = new ServiceRegistry();
+			registry.Scan(scan =>
 			{
 				scan.TheCallingAssembly();
 				scan.ConnectImplementationsToTypesClosing(typeof(IQueryHandler<,>));
@@ -18,7 +17,7 @@ namespace BugTracker.API.Configuration
 				scan.RegisterConcreteTypesAgainstTheFirstInterface();
 			});
 
-			return services;
+			return registry;
 		}
 	}
 }

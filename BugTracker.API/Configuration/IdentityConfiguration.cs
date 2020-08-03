@@ -1,6 +1,7 @@
 namespace BugTracker.API.Configuration
 {
 	using System;
+	using BugTracker.Identity.Models;
 	using BugTracker.Persistence;
 	using LanguageExt;
 	using Microsoft.AspNetCore.Identity;
@@ -10,9 +11,10 @@ namespace BugTracker.API.Configuration
 	{
 		public static Unit Configure(IServiceCollection services)
 		{
-			services.AddIdentity<IdentityUser, IdentityRole>()
-					.AddEntityFrameworkStores<IdentityContext>();
-			
+			services.AddIdentity<ApplicationUser, IdentityRole>()
+					.AddEntityFrameworkStores<IdentityContext>()
+					.AddDefaultTokenProviders();
+
 			services.Configure<IdentityOptions>(options =>
 			{
 				// Password settings.
@@ -31,7 +33,7 @@ namespace BugTracker.API.Configuration
 					"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
 				options.User.RequireUniqueEmail = false;
 			});
-			
+
 			return Unit.Default;
 		}
 	}

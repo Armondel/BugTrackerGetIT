@@ -1,7 +1,6 @@
 namespace BugTracker.API.Configuration
 {
 	using System.Text;
-	using BugTracker.Identity.Configuration;
 	using LanguageExt;
 	using Microsoft.AspNetCore.Authentication.JwtBearer;
 	using Microsoft.Extensions.Configuration;
@@ -12,7 +11,7 @@ namespace BugTracker.API.Configuration
 	{
 		public static Unit Configure(IServiceCollection services, IConfiguration configuration)
 		{
-			var secret = configuration.GetSection("JwtConfig").GetSection("secret").Value;
+			var jwtConfig = configuration.GetSection("JwtConfig");
 			services.AddAuthentication(x =>
 					{
 						x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -23,14 +22,16 @@ namespace BugTracker.API.Configuration
 #if DEBUG
 						options.RequireHttpsMetadata = false;
 #endif
+						options.SaveToken = true;
 						options.TokenValidationParameters = new TokenValidationParameters
 						{
-							ValidIssuer = AuthOptions.ISSUER,
-							ValidAudience = AuthOptions.AUDIENCE,
+							ValidIssuer = jwtConfig.GetValue<string>("issuer"),
+							ValidAudience = jwtConfig.GetValue<string>("audience"),
 							ValidateIssuer = true,
 							ValidateAudience = true,
 							ValidateLifetime = true,
-							IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(secret),
+							IssuerSigningKey =
+								new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtConfig.GetValue<string>("secret"))),
 							ValidateIssuerSigningKey = true,
 						};
 					});
