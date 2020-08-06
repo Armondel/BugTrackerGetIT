@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BugTracker.Persistence.Migrations
 {
-    [DbContext(typeof(IdentityContext))]
+    [DbContext(typeof(DatabaseContext))]
     partial class IdentityContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

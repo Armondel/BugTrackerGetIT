@@ -13,9 +13,9 @@ namespace BugTracker.API.Configuration
 		public static Unit Configure(IServiceCollection services)
 		{
 			services.AddIdentity<ApplicationUser, IdentityRole<int>>()
-					.AddEntityFrameworkStores<IdentityContext>()
+					.AddEntityFrameworkStores<DatabaseContext>()
 					.AddDefaultTokenProviders()
-					.AddUserStore<UserStore<ApplicationUser, IdentityRole<int>, IdentityContext, int>>();
+					.AddUserStore<UserStore<ApplicationUser, IdentityRole<int>, DatabaseContext, int>>();
 
 			services.Configure<IdentityOptions>(options =>
 			{

@@ -5,9 +5,9 @@ namespace BugTracker.Persistence
 	using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 	using Microsoft.EntityFrameworkCore;
 
-	public sealed class IdentityContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
+	public sealed class DatabaseContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 	{
-		public IdentityContext(DbContextOptions<IdentityContext> options)
+		public DatabaseContext(DbContextOptions<DatabaseContext> options)
 			: base(options)
 		{
 		}

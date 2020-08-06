@@ -12,7 +12,7 @@ namespace BugTracker.API.Configuration
 		public static Unit Configure(IServiceCollection services, IConfiguration configuration)
 		{
 			var connectionSettings = configuration.GetSection("Connections").GetSection("Default");
-			var persistenceAssemblyName = typeof(IdentityContext).Assembly.FullName;
+			var persistenceAssemblyName = typeof(DatabaseContext).Assembly.FullName;
 			var connectionString = new NpgsqlConnectionStringBuilder
 			{
 				Host = connectionSettings.GetValue<string>("Host"),
@@ -21,7 +21,7 @@ namespace BugTracker.API.Configuration
 				Port = connectionSettings.GetValue<int>("Port"),
 				Database = connectionSettings.GetValue<string>("Database")
 			};
-			services.AddDbContext<IdentityContext>(builder =>
+			services.AddDbContext<DatabaseContext>(builder =>
 				builder.UseNpgsql(connectionString.ConnectionString, x => x.MigrationsAssembly(persistenceAssemblyName)));
 
 			return Unit.Default;
