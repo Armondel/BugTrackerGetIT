@@ -5,15 +5,17 @@ namespace BugTracker.API.Configuration
 	using BugTracker.Persistence;
 	using LanguageExt;
 	using Microsoft.AspNetCore.Identity;
+	using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 	using Microsoft.Extensions.DependencyInjection;
 
 	public static class IdentityConfiguration
 	{
 		public static Unit Configure(IServiceCollection services)
 		{
-			services.AddIdentity<ApplicationUser, IdentityRole>()
+			services.AddIdentity<ApplicationUser, IdentityRole<int>>()
 					.AddEntityFrameworkStores<IdentityContext>()
-					.AddDefaultTokenProviders();
+					.AddDefaultTokenProviders()
+					.AddUserStore<UserStore<ApplicationUser, IdentityRole<int>, IdentityContext, int>>();
 
 			services.Configure<IdentityOptions>(options =>
 			{

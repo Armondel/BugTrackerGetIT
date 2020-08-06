@@ -5,9 +5,11 @@ namespace BugTracker.API
 	using System.Linq;
 	using System.Reflection;
 	using BugTracker.API.Configuration;
+	using BugTracker.Persistence;
 	using MediatR;
 	using Microsoft.AspNetCore.Builder;
 	using Microsoft.AspNetCore.Hosting;
+	using Microsoft.EntityFrameworkCore;
 	using Microsoft.Extensions.Configuration;
 	using Microsoft.Extensions.DependencyInjection;
 	using Microsoft.Extensions.Hosting;
@@ -64,6 +66,17 @@ namespace BugTracker.API
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+			UpdateDatabase(app);
+		}
+
+		private static void UpdateDatabase(IApplicationBuilder app)
+		{
+			using var serviceScope = app.ApplicationServices
+										.GetRequiredService<IServiceScopeFactory>()
+										.CreateScope();
+			using var context = serviceScope.ServiceProvider.GetService<IdentityContext>();
+			context.Database.Migrate();
 		}
 	}
 }
